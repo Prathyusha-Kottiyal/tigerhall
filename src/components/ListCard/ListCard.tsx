@@ -20,7 +20,7 @@ const ListCard = ({data}: {data: PodCast}) => {
       <View style={styles.contentContainer}>
         {categories.map((category: any, index: number) => (
           <View key={index}>
-            <Text style={styles.category}>{category.name}</Text>
+            <Text style={styles.category}>{category.name.toUpperCase()}</Text>
           </View>
         ))}
         <Text style={styles.cardTitle}>{name}</Text>
@@ -42,7 +42,7 @@ const ListCard = ({data}: {data: PodCast}) => {
 const styles = StyleSheet.create({
   cardContainer: {
     borderRadius: 5,
-    marginBottom: 20,
+    marginTop: 20,
     overflow: 'hidden',
   },
   contentContainer: {
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
     color: Colors.TigerhallOrange,
   },
   category: {
-    fontFamily: 'AvertaStd-Regular',
+    fontFamily: 'AvertaStd-Bold',
     fontWeight: '700',
     fontSize: 12,
     lineHeight: 15,

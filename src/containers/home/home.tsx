@@ -66,12 +66,16 @@ const Home = () => {
       <StatusBar barStyle={'light-content'} />
       <View style={styles.container}>
         <View>
-          <Text style={styles.searchText}>Search</Text>
-          <TextInput
-            style={styles.searchTextBox}
-            value={search}
-            onChangeText={val => updateList(val)}
-          />
+          <View>
+            <Text style={styles.searchText}>Search</Text>
+            <TextInput
+              placeholder="Type any keyword"
+              style={styles.searchTextBox}
+              placeholderTextColor={Colors.Grey}
+              value={search}
+              onChangeText={val => updateList(val)}
+            />
+          </View>
           <View>
             <FlatList
               showsVerticalScrollIndicator={false}
@@ -106,14 +110,15 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 17,
     color: Colors.OffWhite,
+    marginBottom: 10,
   },
   searchTextBox: {
     fontFamily: 'AvertaStd-Light',
     fontWeight: '400',
     fontSize: 14,
     lineHeight: 17,
-    color: Colors.Grey,
-    backgroundColor: '#003238',
+    color: Colors.OffWhite,
+    backgroundColor: Colors.TigerhallTeal,
     borderRadius: 5,
     padding: 8,
   },
