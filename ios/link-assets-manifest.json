@@ -2,76 +2,16 @@
   "migIndex": 1,
   "data": [
     {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-Black.ttf",
-      "sha1": "b603d95c8609c886f84dbe40a6916a267d052805"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-BlackItalic.ttf",
-      "sha1": "731a7485f1c4e97d7c3f3b6b941f2530288b07b6"
-    },
-    {
       "path": "src/assets/fonts/AvertaStandard/AvertaStd-Bold.ttf",
       "sha1": "4d5973afa57124940c33ede5457089011c8d733e"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-BoldItalic.ttf",
-      "sha1": "1844e1db12c7fca31846035463c98445849f443f"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-ExtraBold.ttf",
-      "sha1": "f3f79b38c665e56037736b5c29eeb63397e2898d"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-ExtraBoldItalic.ttf",
-      "sha1": "9db38d31b1e15d369259970a2eacc29125ead932"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-Extrathin.ttf",
-      "sha1": "a848bdfc238f808d4d6d50925b77ed71047cd18a"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-ExtrathinItalic.ttf",
-      "sha1": "7195c89d98ff721401dc289379f149be9dad2eec"
     },
     {
       "path": "src/assets/fonts/AvertaStandard/AvertaStd-Light.ttf",
       "sha1": "41040a3a221ee860f94b3a10e8e601c859c04c88"
     },
     {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-LightItalic.ttf",
-      "sha1": "aca1def2f56e8a2492f6ebd162ac8dba1d533141"
-    },
-    {
       "path": "src/assets/fonts/AvertaStandard/AvertaStd-Regular.ttf",
       "sha1": "e75e35cc8501b2717996d2e42763fbe1ef2f06d8"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-RegularItalic.ttf",
-      "sha1": "c91b14ece54a1555c06b52d3a4b28a931738e50c"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-Semibold.ttf",
-      "sha1": "65ab937099da5272f9349e478561b597c3775cf9"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-SemiboldItalic.ttf",
-      "sha1": "7f39481434b6ff76858a873ef3ee8cca5720d740"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-Thin.ttf",
-      "sha1": "4f348653e2f56b752ba8b8acb74b1a2d378cf5d0"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/AvertaStd-ThinItalic.ttf",
-      "sha1": "d4aea23c789ad610b2d7507b978aa500f9cd637d"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/Dfonts – Download Free Fonts.url",
-      "sha1": "95cc7fa2d6c65461c8c03788488db94690e6dc83"
-    },
-    {
-      "path": "src/assets/fonts/AvertaStandard/Read Me.txt",
-      "sha1": "9e382f25bf09e0325ebeecc3892aa4846b81fd30"
     }
   ]
 }

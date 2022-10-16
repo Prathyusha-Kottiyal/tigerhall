@@ -15,7 +15,7 @@ import strings from '../../theme/strings';
 import {useQuery} from '@apollo/client';
 import {CONTENT_CARD_QUERY} from '../../gql/queries';
 
-import ListCard from '../../components/ListCard/ListCard';
+import {ListCard, Loader} from '../../components';
 
 const Home = () => {
   const [search, setSearch] = React.useState<string>('');
@@ -95,13 +95,7 @@ const Home = () => {
             onChangeText={val => updateList(val)}
           />
         </View>
-        {!!appLoader && (
-          <ActivityIndicator
-            size="large"
-            color={Colors.TigerhallOrange}
-            style={styles.loader}
-          />
-        )}
+        {!!appLoader && <Loader />}
         {!appLoader && (
           <FlatList
             showsVerticalScrollIndicator={false}
@@ -110,16 +104,12 @@ const Home = () => {
             renderItem={({item, index}) => <ListCard key={index} data={item} />}
             onEndReached={() => onEndReached()}
             onEndReachedThreshold={0.5}
-            ListEmptyComponent={() => <Text style={styles.emptyString}>{strings.home.no_data}</Text>}
+            ListEmptyComponent={() => (
+              <Text style={styles.emptyString}>{strings.home.no_data}</Text>
+            )}
           />
         )}
-        {lazyLoad && (
-          <ActivityIndicator
-            size="large"
-            color={Colors.TigerhallOrange}
-            style={styles.loader}
-          />
-        )}
+        {lazyLoad && <Loader />}
       </View>
     </SafeAreaView>
   );
@@ -153,9 +143,6 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 8,
     marginBottom: 14,
-  },
-  loader: {
-    marginVertical: 20,
   },
   emptyString: {
     fontFamily: 'AvertaStd-Light',

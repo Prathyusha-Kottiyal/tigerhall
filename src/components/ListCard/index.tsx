@@ -20,7 +20,9 @@ const ListCard = ({data}: {data: PodCast}) => {
       <View style={[styles.contentContainer]}>
         {categories.map((category: any, index: number) => (
           <View key={index}>
-            <Text style={[styles.category, styles.textGap]}>{category.name.toUpperCase()}</Text>
+            <Text style={[styles.category, styles.textGap]}>
+              {category.name.toUpperCase()}
+            </Text>
           </View>
         ))}
         <Text style={[styles.cardTitle, styles.textGap]}>{name}</Text>
@@ -32,7 +34,7 @@ const ListCard = ({data}: {data: PodCast}) => {
                 styles.textGap,
               ]}>{`${expert.firstName} ${expert.lastName}`}</Text>
             <Text style={[styles.expertDetails, styles.textGap]}>
-              {expert.title}
+              {expert.title.toUpperCase()}
             </Text>
             <Text style={[styles.expertDetails, styles.companyName]}>
               {expert.company}
