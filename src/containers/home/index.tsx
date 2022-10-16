@@ -9,6 +9,7 @@ import {
   FlatList,
 } from 'react-native';
 import Colors from '../../theme/colors';
+import strings from '../../theme/strings';
 
 import {useQuery} from '@apollo/client';
 import {CONTENT_CARD_QUERY} from '../../gql/queries';
@@ -67,9 +68,9 @@ const Home = () => {
       <View style={styles.container}>
         <View>
           <View>
-            <Text style={styles.searchText}>Search</Text>
+            <Text style={styles.searchText}>{strings.home.search}</Text>
             <TextInput
-              placeholder="Type any keyword"
+              placeholder={strings.home.placeholder_search}
               style={styles.searchTextBox}
               placeholderTextColor={Colors.Grey}
               value={search}

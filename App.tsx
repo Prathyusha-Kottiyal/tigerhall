@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from './src/containers/home/home';
+import Home from './src/containers/home';
 
 import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client';
 const client = new ApolloClient({
