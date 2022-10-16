@@ -1,7 +1,8 @@
 import React from 'react';
-import {Text, View, Image, StyleSheet} from 'react-native';
+import {Text, View, StyleSheet} from 'react-native';
 import PodCast from '../../interfaces';
 import Colors from '../../theme/colors';
+import FastImage from 'react-native-fast-image';
 
 const ListCard = ({data}: {data: PodCast}) => {
   const {image, name, experts, categories} = data;
@@ -9,21 +10,22 @@ const ListCard = ({data}: {data: PodCast}) => {
 
   return (
     <View style={styles.cardContainer}>
-      <Image
+      <FastImage
         style={styles.cardImage}
         source={{
           uri: image?.uri.replace(imgURL, `${imgURL}resize/250x`),
         }}
+        resizeMode={FastImage.resizeMode.cover}
       />
       <View style={styles.contentContainer}>
-        {categories.map((category: any) => (
-          <View>
+        {categories.map((category: any, index: number) => (
+          <View key={index}>
             <Text style={styles.category}>{category.name}</Text>
           </View>
         ))}
         <Text style={styles.cardTitle}>{name}</Text>
-        {experts.map((expert: any) => (
-          <View>
+        {experts.map((expert: any, index: number) => (
+          <View key={index}>
             <Text
               style={
                 styles.expertDetails
@@ -49,6 +51,7 @@ const styles = StyleSheet.create({
   },
   cardImage: {
     height: 130,
+    width: '100%',
   },
   cardTitle: {
     fontFamily: 'AvertaStd-Regular',

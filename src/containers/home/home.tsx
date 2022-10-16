@@ -17,28 +17,71 @@ import ListCard from '../../components/ListCard/ListCard';
 
 const Home = () => {
   const [search, setSearch] = React.useState<string>('');
-  const {data} = useQuery(CONTENT_CARD_QUERY);
-  console.log(data);
+  const {data, fetchMore} = useQuery(CONTENT_CARD_QUERY, {
+    variables: {
+      offset: 1,
+      keywords: '',
+    },
+  });
+
+  const [pageData, setPageData] = React.useState<any>();
+  const [totalCount, setTotalCount] = React.useState<number>(0);
+
+  React.useEffect(() => {
+    if (data) {
+      setPageData(data.contentCards?.edges);
+      setTotalCount(data.contentCards.meta.total);
+    }
+  }, [data]);
+
+  const onEndReached = () => {
+    if (totalCount > pageData.length) {
+      fetchMore({
+        variables: {
+          offset: pageData.length,
+          keywords: '',
+        },
+      }).then(fetchMoreResult => {
+        setPageData([...pageData, ...fetchMoreResult.data.contentCards?.edges]);
+        setTotalCount(fetchMoreResult.data.contentCards.meta.total);
+      });
+    }
+  };
+
+  const updateList = (val: string) => {
+    setSearch(val);
+    fetchMore({
+      variables: {
+        offset: 1,
+        keywords: val,
+      },
+    }).then(fetchMoreResult => {
+      setPageData(fetchMoreResult.data.contentCards?.edges);
+      setTotalCount(fetchMoreResult.data.contentCards.meta.total);
+    });
+  };
+
   return (
     <SafeAreaView style={styles.safeAreaView}>
-      <StatusBar
-        barStyle={'light-content'}
-        //  backgroundColor={styles.backgroundColor}
-      />
+      <StatusBar barStyle={'light-content'} />
       <View style={styles.container}>
         <View>
           <Text style={styles.searchText}>Search</Text>
           <TextInput
             style={styles.searchTextBox}
             value={search}
-            onChangeText={val => setSearch(val)}
+            onChangeText={val => updateList(val)}
           />
           <View>
             <FlatList
               showsVerticalScrollIndicator={false}
-              data={data?.contentCards?.edges}
-              extraData={data}
-              renderItem={({item}) => <ListCard data={item} />}
+              data={pageData}
+              extraData={pageData}
+              renderItem={({item, index}) => (
+                <ListCard key={index} data={item} />
+              )}
+              onEndReached={() => onEndReached()}
+              onEndReachedThreshold={0.5}
             />
           </View>
         </View>
