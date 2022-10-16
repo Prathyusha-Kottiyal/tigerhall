@@ -10,9 +10,13 @@
    TextInput
  } from 'react-native';
  
- 
+ import { useQuery } from "@apollo/client";
+import { CONTENT_CARD_QUERY } from "../../gql/queries";
+
  const Home = () => {
    const [search, setSearch] = React.useState<string>('');
+   const { data } = useQuery(CONTENT_CARD_QUERY); 
+   console.log(data)
    return (
      <SafeAreaView style={styles.safeAreaView}>
        <StatusBar
