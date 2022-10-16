@@ -1,16 +1,19 @@
 import React from 'react';
 import {
   SafeAreaView,
-  ScrollView,
   StatusBar,
   StyleSheet,
   Text,
   View,
   TextInput,
+  FlatList,
 } from 'react-native';
+import Colors from '../../theme/colors';
 
 import {useQuery} from '@apollo/client';
 import {CONTENT_CARD_QUERY} from '../../gql/queries';
+
+import ListCard from '../../components/ListCard/ListCard';
 
 const Home = () => {
   const [search, setSearch] = React.useState<string>('');
@@ -22,9 +25,7 @@ const Home = () => {
         barStyle={'light-content'}
         //  backgroundColor={styles.backgroundColor}
       />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={styles.container}>
+      <View style={styles.container}>
         <View>
           <Text style={styles.searchText}>Search</Text>
           <TextInput
@@ -32,8 +33,16 @@ const Home = () => {
             value={search}
             onChangeText={val => setSearch(val)}
           />
+          <View>
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              data={data?.contentCards?.edges}
+              extraData={data}
+              renderItem={({item}) => <ListCard data={item} />}
+            />
+          </View>
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 };
@@ -41,12 +50,11 @@ const Home = () => {
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
-    backgroundColor: '#001315',
+    backgroundColor: Colors.DarkTeal,
     padding: 20,
   },
   container: {
     flex: 1,
-    backgroundColor: '#001315',
     padding: 20,
   },
   searchText: {
@@ -54,14 +62,14 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 14,
     lineHeight: 17,
-    color: '#FFFFFF',
+    color: Colors.OffWhite,
   },
   searchTextBox: {
     fontFamily: 'AvertaStd-Light',
     fontWeight: '400',
     fontSize: 14,
     lineHeight: 17,
-    color: '#989898',
+    color: Colors.Grey,
     backgroundColor: '#003238',
     borderRadius: 5,
     padding: 8,
