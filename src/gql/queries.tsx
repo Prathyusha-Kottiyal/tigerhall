@@ -8,7 +8,7 @@ export const CONTENT_CARD_QUERY = gql`
   query contentCards($offset: Int, $keywords: String) {
     contentCards(
       filter: {
-        limit: 10
+        limit: 20
         offset: $offset
         keywords: $keywords
         types: [PODCAST]

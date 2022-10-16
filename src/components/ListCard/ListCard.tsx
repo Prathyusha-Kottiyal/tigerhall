@@ -17,21 +17,26 @@ const ListCard = ({data}: {data: PodCast}) => {
         }}
         resizeMode={FastImage.resizeMode.cover}
       />
-      <View style={styles.contentContainer}>
+      <View style={[styles.contentContainer]}>
         {categories.map((category: any, index: number) => (
           <View key={index}>
-            <Text style={styles.category}>{category.name.toUpperCase()}</Text>
+            <Text style={[styles.category, styles.textGap]}>{category.name.toUpperCase()}</Text>
           </View>
         ))}
-        <Text style={styles.cardTitle}>{name}</Text>
+        <Text style={[styles.cardTitle, styles.textGap]}>{name}</Text>
         {experts.map((expert: any, index: number) => (
           <View key={index}>
             <Text
-              style={
-                styles.expertDetails
-              }>{`${expert.firstName} ${expert.lastName}`}</Text>
-            <Text style={styles.expertDetails}>{expert.title}</Text>
-            <Text style={styles.companyName}>{expert.company}</Text>
+              style={[
+                styles.expertDetails,
+                styles.textGap,
+              ]}>{`${expert.firstName} ${expert.lastName}`}</Text>
+            <Text style={[styles.expertDetails, styles.textGap]}>
+              {expert.title}
+            </Text>
+            <Text style={[styles.expertDetails, styles.companyName]}>
+              {expert.company}
+            </Text>
           </View>
         ))}
       </View>
@@ -42,12 +47,12 @@ const ListCard = ({data}: {data: PodCast}) => {
 const styles = StyleSheet.create({
   cardContainer: {
     borderRadius: 5,
-    marginTop: 20,
+    marginBottom: 20,
     overflow: 'hidden',
   },
   contentContainer: {
     backgroundColor: '#FFF',
-    padding: 10,
+    padding: 12,
   },
   cardImage: {
     height: 130,
@@ -68,10 +73,6 @@ const styles = StyleSheet.create({
     color: Colors.LightBlack,
   },
   companyName: {
-    fontFamily: 'AvertaStd-Regular',
-    fontWeight: '700',
-    fontSize: 12,
-    lineHeight: 15,
     color: Colors.TigerhallOrange,
   },
   category: {
@@ -80,6 +81,9 @@ const styles = StyleSheet.create({
     fontSize: 12,
     lineHeight: 15,
     color: Colors.TigerhallOrange,
+  },
+  textGap: {
+    marginBottom: 4,
   },
 });
 
