@@ -1,0 +1,17 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/AvertaStandard/AvertaStd-Bold.ttf",
+      "sha1": "4d5973afa57124940c33ede5457089011c8d733e"
+    },
+    {
+      "path": "src/assets/fonts/AvertaStandard/AvertaStd-Light.ttf",
+      "sha1": "41040a3a221ee860f94b3a10e8e601c859c04c88"
+    },
+    {
+      "path": "src/assets/fonts/AvertaStandard/AvertaStd-Regular.ttf",
+      "sha1": "e75e35cc8501b2717996d2e42763fbe1ef2f06d8"
+    }
+  ]
+}
