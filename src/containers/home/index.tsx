@@ -7,6 +7,8 @@ import {
   View,
   TextInput,
   FlatList,
+  KeyboardAvoidingView,
+  Platform,
 } from 'react-native';
 import {Colors, Font, Strings} from '../../theme';
 
@@ -81,34 +83,40 @@ const Home = () => {
 
   return (
     <SafeAreaView style={styles.safeAreaView}>
-      <StatusBar barStyle={'light-content'} />
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.searchText}>{Strings.home.search}</Text>
-          <TextInput
-            placeholder={Strings.home.placeholder_search}
-            style={styles.searchTextBox}
-            placeholderTextColor={Colors.Grey}
-            value={search}
-            onChangeText={val => updateList(val)}
-          />
+      <StatusBar barStyle={'light-content'} backgroundColor={Colors.DarkTeal} />
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.keyboardView}>
+        <View style={styles.container}>
+          <View>
+            <Text style={styles.searchText}>{Strings.home.search}</Text>
+            <TextInput
+              placeholder={Strings.home.placeholder_search}
+              style={styles.searchTextBox}
+              placeholderTextColor={Colors.Grey}
+              value={search}
+              onChangeText={val => updateList(val)}
+            />
+          </View>
+          {!!appLoader && <Loader />}
+          {!appLoader && (
+            <FlatList
+              showsVerticalScrollIndicator={false}
+              data={podCasts}
+              extraData={podCasts}
+              renderItem={({item, index}) => (
+                <ListCard key={index} data={item} />
+              )}
+              onEndReached={() => onEndReached()}
+              onEndReachedThreshold={0.5}
+              ListEmptyComponent={() => (
+                <Text style={styles.emptyString}>{Strings.home.no_data}</Text>
+              )}
+            />
+          )}
+          {lazyLoad && <Loader />}
         </View>
-        {!!appLoader && <Loader />}
-        {!appLoader && (
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            data={podCasts}
-            extraData={podCasts}
-            renderItem={({item, index}) => <ListCard key={index} data={item} />}
-            onEndReached={() => onEndReached()}
-            onEndReachedThreshold={0.5}
-            ListEmptyComponent={() => (
-              <Text style={styles.emptyString}>{Strings.home.no_data}</Text>
-            )}
-          />
-        )}
-        {lazyLoad && <Loader />}
-      </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
@@ -118,6 +126,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: Colors.DarkTeal,
     padding: 20,
+  },
+  keyboardView: {
+    flex: 1,
   },
   container: {
     flex: 1,
