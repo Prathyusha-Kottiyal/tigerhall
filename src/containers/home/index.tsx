@@ -7,10 +7,8 @@ import {
   View,
   TextInput,
   FlatList,
-  ActivityIndicator,
 } from 'react-native';
-import Colors from '../../theme/colors';
-import strings from '../../theme/strings';
+import {Colors, Font, Strings} from '../../theme';
 
 import {useQuery} from '@apollo/client';
 import {CONTENT_CARD_QUERY} from '../../gql/queries';
@@ -86,9 +84,9 @@ const Home = () => {
       <StatusBar barStyle={'light-content'} />
       <View style={styles.container}>
         <View>
-          <Text style={styles.searchText}>{strings.home.search}</Text>
+          <Text style={styles.searchText}>{Strings.home.search}</Text>
           <TextInput
-            placeholder={strings.home.placeholder_search}
+            placeholder={Strings.home.placeholder_search}
             style={styles.searchTextBox}
             placeholderTextColor={Colors.Grey}
             value={search}
@@ -105,7 +103,7 @@ const Home = () => {
             onEndReached={() => onEndReached()}
             onEndReachedThreshold={0.5}
             ListEmptyComponent={() => (
-              <Text style={styles.emptyString}>{strings.home.no_data}</Text>
+              <Text style={styles.emptyString}>{Strings.home.no_data}</Text>
             )}
           />
         )}
@@ -126,17 +124,17 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   searchText: {
-    fontFamily: 'AvertaStd-Bold',
+    fontFamily: Font.type.AvertaLight,
+    fontSize: Font.size.fontm,
     fontWeight: '700',
-    fontSize: 14,
     lineHeight: 17,
     color: Colors.OffWhite,
     marginBottom: 10,
   },
   searchTextBox: {
-    fontFamily: 'AvertaStd-Light',
+    fontFamily: Font.type.AvertaLight,
+    fontSize: Font.size.fontm,
     fontWeight: '400',
-    fontSize: 14,
     lineHeight: 17,
     color: Colors.OffWhite,
     backgroundColor: Colors.TigerhallTeal,
@@ -145,9 +143,9 @@ const styles = StyleSheet.create({
     marginBottom: 14,
   },
   emptyString: {
-    fontFamily: 'AvertaStd-Light',
+    fontFamily: Font.type.AvertaLight,
+    fontSize: Font.size.fontm,
     fontWeight: '400',
-    fontSize: 14,
     color: Colors.OffWhite,
     textAlign: 'center',
     marginTop: 20,

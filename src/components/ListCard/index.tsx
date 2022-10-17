@@ -1,7 +1,7 @@
 import React from 'react';
 import {Text, View, StyleSheet} from 'react-native';
 import PodCast from '../../interfaces';
-import Colors from '../../theme/colors';
+import {Colors, Font} from '../../theme';
 import FastImage from 'react-native-fast-image';
 
 const ListCard = ({data}: {data: PodCast}) => {
@@ -61,16 +61,16 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   cardTitle: {
-    fontFamily: 'AvertaStd-Regular',
+    fontFamily: Font.type.AvertaRegular,
+    fontSize: Font.size.fontxl,
     fontWeight: '700',
-    fontSize: 18,
     lineHeight: 22,
     color: Colors.Black,
   },
   expertDetails: {
-    fontFamily: 'AvertaStd-Regular',
+    fontFamily: Font.type.AvertaRegular,
+    fontSize: Font.size.fontm,
     fontWeight: '600',
-    fontSize: 14,
     lineHeight: 17,
     color: Colors.LightBlack,
   },
@@ -78,9 +78,9 @@ const styles = StyleSheet.create({
     color: Colors.TigerhallOrange,
   },
   category: {
-    fontFamily: 'AvertaStd-Bold',
+    fontFamily: Font.type.AvertaBold,
     fontWeight: '700',
-    fontSize: 12,
+    fontSize: Font.size.fonts,
     lineHeight: 15,
     color: Colors.TigerhallOrange,
   },
